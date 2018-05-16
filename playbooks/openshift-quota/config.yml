@@ -1,0 +1,35 @@
+---
+- name: Initialization Checkpoint Start
+  hosts: all
+  gather_facts: false
+  roles:
+  - installer_checkpoint
+
+- name: Quota Install Checkpoint Start
+  hosts: masters[0]
+  gather_facts: false
+  tasks:
+  - name: Set Quota install 'In Progress'
+    run_once: true
+    set_stats:
+      data:
+        installer_phase_quota:
+          status: "In Progress"
+          start: "{{ lookup('pipe', 'date +%Y%m%d%H%M%SZ') }}"
+
+- name: OpenShift Quota
+  hosts: masters[0]
+  roles:
+  - role: openshift_quota
+
+- name: Quota Install Checkpoint End
+  hosts: masters[0]
+  gather_facts: false
+  tasks:
+  - name: Set Quota install 'Complete'
+    run_once: true
+    set_stats:
+      data:
+        installer_phase_quota:
+          status: "Complete"
+          end: "{{ lookup('pipe', 'date +%Y%m%d%H%M%SZ') }}"
