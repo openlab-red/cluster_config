@@ -45,7 +45,7 @@
           {{ hostvars | to_nice_json }}
 
     debug:
-      msg: '{{ msg.split('\n') }}'
+      msg: "{{ msg.split('\n') }}"
 
 - name: Debug Checkpoint  End
   hosts: localhost
