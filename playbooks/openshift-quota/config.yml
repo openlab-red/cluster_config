@@ -14,6 +14,7 @@
     set_stats:
       data:
         installer_phase_quota:
+          title:  "OpenShift Quota"
           status: "In Progress"
           start: "{{ lookup('pipe', 'date +%Y%m%d%H%M%SZ') }}"
 
@@ -31,5 +32,6 @@
     set_stats:
       data:
         installer_phase_quota:
+          title:  "OpenShift Quota"
           status: "Complete"
           end: "{{ lookup('pipe', 'date +%Y%m%d%H%M%SZ') }}"
