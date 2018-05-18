@@ -47,13 +47,6 @@
     debug:
       msg: "{{ msg.split('\n') }}"
 
-- name: Pause
-  hosts: all
-  tasks:
-  - name: sleep for 300 seconds and continue with play
-    wait_for: timeout=300
-    delegate_to: localhost
-
 - name: Ping Hosts
   hosts: all
   tasks:
