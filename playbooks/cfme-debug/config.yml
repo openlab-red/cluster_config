@@ -47,6 +47,12 @@
     debug:
       msg: "{{ msg.split('\n') }}"
 
+- name: Ping Hosts
+  hosts: all
+  tasks:
+  - name: Ping all
+    ping:
+
 - name: Debug Checkpoint  End
   hosts: localhost
   gather_facts: false
