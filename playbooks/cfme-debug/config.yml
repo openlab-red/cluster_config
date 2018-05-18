@@ -47,6 +47,13 @@
     debug:
       msg: "{{ msg.split('\n') }}"
 
+- name: Pause
+  hosts: all
+  tasks:
+  - name: Pause for check
+    pause:
+      minutes: 5
+
 - name: Ping Hosts
   hosts: all
   tasks:
