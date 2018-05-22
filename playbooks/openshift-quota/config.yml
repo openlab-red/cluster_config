@@ -19,7 +19,8 @@
           start: "{{ lookup('pipe', 'date +%Y%m%d%H%M%SZ') }}"
 
 - name: OpenShift Quota
-  hosts: localhost
+  hosts: all
+  become: true
   roles:
   - role: openshift_quota
 

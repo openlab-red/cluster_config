@@ -49,6 +49,7 @@
 
 - name: Ping Hosts
   hosts: all
+  become: true
   tasks:
   - name: Ping all
     ping:
