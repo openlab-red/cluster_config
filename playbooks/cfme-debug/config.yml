@@ -51,8 +51,23 @@
   hosts: all
   become: true
   tasks:
+
   - name: Ping all
     ping:
+
+  - name: Test JSON var
+    vars:
+      json_value: '{{ openshift_jsonvar | from_json }}'
+    debug:
+      msg: '{{ json_value | to_nice_json }}'
+    when: openshift_jsonvar is defined
+
+  - name: Test Yaml var
+    vars:
+      yaml_value: '{{ openshift_yamlvar | from_yaml }}'
+    debug:
+      msg: '{{ yaml_value | to_nice_yaml}}'
+    when: openshift_yamlvar is defined
 
 - name: Debug Checkpoint  End
   hosts: localhost
