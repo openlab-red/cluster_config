@@ -8,4 +8,4 @@
     oc apply -f {{ mktemp.stdout }}/quota-{{openshift_quota_tier}}.yml -n {{ item }}
   with_items:
     '{{ openshift_quota_projects }}'
-  when: openshift_quota_projects | lenght > 0
+  when: openshift_quota_projects | length > 0
