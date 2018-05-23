@@ -7,4 +7,4 @@
   command: >
     oc apply -f {{ mktemp.stdout }}/quota-{{openshift_quota_tier}}.yml -n {{ item }}
   with_items:
-    "{{ openshift_quota_projects }}"
+    '{{ openshift_quota_projects }}'

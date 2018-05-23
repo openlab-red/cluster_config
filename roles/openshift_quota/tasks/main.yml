@@ -4,6 +4,9 @@
   changed_when: False
   check_mode: no
 
+- include_tasks: cfme-adapter.yml
+  when: openshift_quota_cfme_adapter | bool
+
 - include_tasks: quota.yml
   when: not openshift_quota_all_projects | bool
 

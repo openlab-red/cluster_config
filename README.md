@@ -8,12 +8,13 @@
 
 Quota Tiers
 
-| Profile          | Project CPU             | Project Memory         | Per Pod CPU                                    | Per Pod Memory                                   |
-|------------------|-------------------------|------------------------|----------------------------------------------- |--------------------------------------------------|
-| X-Small          | 1 core (burstable to 2) | 2Gi (burstable to 4)   | 10m - 1000m; default request/limit: 50m/250m   | 128 Mi - 1Gi; default request/limit: 256Mi/256Mi |
-| Small (default)  | 2 core (burstable to 4) | 4Gi (burstable to 8)   | 10m - 1000m; default request/limit: 50m/500m   | 128 Mi - 2Gi; default request/limit: 256Mi/512Mi |
-| Medium           | 4 core (burstable to 6) | 8Gi (burstable to 12)  | 10m - 2000m; default request/limit: 50m/1000m  | 128 Mi - 4Gi; default request/limit: 256Mi/1Gi   |
-| Large            | 6 core (burstable to 8) | 12Gi (burstable to 16) | 10m - 2000m; default request/limit: 50m/2000m  | 128 Mi - 6Gi; default request/limit: 256Mi/2Gi   |
+| Profile         | Project CPU               | Project Memory         | Per Pod CPU                                     | Per Pod Memory                                    |
+|-----------------|---------------------------|------------------------|------------------------------------------------ |---------------------------------------------------|
+| X-Small         | 1 core (burstable to 2)   | 2Gi (burstable to 4)   | 10m - 1000m; default request/limit: 50m/250m    | 128 Mi - 1Gi; default request/limit: 256Mi/256Mi  |
+| Small (default) | 2 core (burstable to 4)   | 4Gi (burstable to 8)   | 10m - 1000m; default request/limit: 50m/500m    | 128 Mi - 2Gi; default request/limit: 256Mi/512Mi  |
+| Medium          | 4 core (burstable to 6)   | 8Gi (burstable to 12)  | 20m - 2000m; default request/limit: 50m/1000m   | 128 Mi - 4Gi; default request/limit: 256Mi/1Gi    |
+| Large           | 6 core (burstable to 8)   | 12Gi (burstable to 16) | 20m - 2000m; default request/limit: 100m/2000m  | 256 Mi - 6Gi; default request/limit: 512Mi/2Gi    |
+| X-Large         | 12 core (burstable to 16) | 32Gi (burstable to 66) | 20m - 6000m; default request/limit: 100m/4000m  | 256 Mi - 16Gi; default request/limit: 512Mi/8Gi   |
 
 
 * Ansible **openshift_quota_tier** possible values:
@@ -21,6 +22,7 @@ Quota Tiers
   * small
   * medium
   * large
+  * xlarge
 
 >
 > Default tier quota is small

@@ -6,54 +6,54 @@ items:
   kind: ResourceQuota
   metadata:
     annotations:
-      openshift.io/quota-tier: Medium
+      openshift.io/quota-tier: Large
     labels:
-      quota-tier: Medium
+      quota-tier: Large
     name: quota
   spec:
     hard:
-      cpu: "4"
-      memory: 8Gi
+      cpu: "12"
+      memory: 32Gi
     scopes:
     - NotTerminating
 - apiVersion: v1
   kind: ResourceQuota
   metadata:
     annotations:
-      openshift.io/quota-tier: Medium
+      openshift.io/quota-tier: X-Large
     labels:
-      quota-tier: Medium
+      quota-tier: X-Large
     name: burst-quota
   spec:
     hard:
-      cpu: "6"
-      memory: 12Gi
+      cpu: "16"
+      memory: 64Gi
 - apiVersion: v1
   kind: LimitRange
   metadata:
     annotations:
-      openshift.io/quota-tier: Medium
+      openshift.io/quota-tier: X-Large
     labels:
-      quota-tier: Medium
+      quota-tier: X-Large
     name: limits
   spec:
     limits:
     - max:
-        cpu: "2"
-        memory: 4Gi
+        cpu: "6"
+        memory: 16Gi
       min:
         cpu: 20m
-        memory: 128Mi
+        memory: 256Mi
       type: Pod
     - default:
-        cpu: "1"
-        memory: 1Gi
+        cpu: "4"
+        memory: 8Gi
       defaultRequest:
-        cpu: 50m
-        memory: 256Mi
+        cpu: 100m
+        memory: 512Mi
       max:
-        cpu: "2"
-        memory: 4Gi
+        cpu: "6"
+        memory: 16Gi
       min:
         cpu: 20m
         memory: 256Mi
