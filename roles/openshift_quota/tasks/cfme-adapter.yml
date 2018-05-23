@@ -1,11 +1,15 @@
 - name: CloudForms OpenShift Quota Projects Parameters
-  set_fact:
-    openshift_quota_projects_cfme: '{{ openshift_quota_projects_cfme | from_yaml }}'
-    openshift_quota_projects: '{{ openshift_quota_projects_cfme.openshift_quota_projects}}'
+  block:
+  - set_fact:
+      openshift_quota_projects_yaml: '{{ openshift_quota_projects_cfme | from_yaml }}'
+  - set_fact:
+      openshift_quota_projects: '{{ openshift_quota_projects_yaml.openshift_quota_projects}}'
   when: openshift_quota_projects_cfme is defined
 
 - name: CloudForms OpenShift Quota Projects Excluder Parameters
-  set_fact:
-    openshift_quota_projects_excluder_cfme: '{{ openshift_quota_projects_excluder_cfme | from_yaml }}'
-    openshift_quota_projects_excluder: '{{ openshift_quota_projects_excluder_cfme.openshift_quota_projects_excluder}}'
+  block:
+  - set_fact:
+      openshift_quota_projects_excluder_yaml: '{{ openshift_quota_projects_excluder_cfme | from_yaml }}'
+  - set_fact:
+      openshift_quota_projects_excluder: '{{ openshift_quota_projects_excluder_yaml.openshift_quota_projects_excluder}}'
   when: openshift_quota_projects_excluder_cfme is defined
